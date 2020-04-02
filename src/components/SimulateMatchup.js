@@ -166,6 +166,7 @@ class SimulateMatchup extends React.Component {
     let data = JSON.stringify(rawData);
     // create XHR object
     let xhr = new XMLHttpRequest();
+    // connect to API hosted on Heroku
     const url = "https://nbahub-api.herokuapp.com/handle-teams";
     // open a POST request to url
     // async = true
