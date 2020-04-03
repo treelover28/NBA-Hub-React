@@ -88,6 +88,7 @@ class SimulationDate extends React.Component {
     let xhr = new XMLHttpRequest();
     // connect to API hosted on Heroku
     const url = "https://nbahub-api.herokuapp.com/handle-date";
+    // const url = "http://0.0.0.0:5000/handle-date";
     xhr.open("POST", url, true);
     xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
     // send data
