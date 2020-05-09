@@ -31,8 +31,3 @@
   padding: 12px 24px;
   border: none;
 }
-
-.button:hover,
-.submit:hover {
-  background-color: black;
-}

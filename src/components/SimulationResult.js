@@ -7,7 +7,7 @@ const SimulationResult = (props) => {
       {props.noGame ? (
         <div>
           <br></br>
-          <h2>{props.message}</h2>
+          <h3>{props.message}</h3>
           <br></br>
         </div>
       ) : (

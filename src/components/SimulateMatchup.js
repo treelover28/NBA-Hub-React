@@ -33,6 +33,7 @@ import jazz from "../images/logos/jazz.png";
 import wizards from "../images/logos/wizards.png";
 
 import "../styles/simulateMatchup.css";
+import "../styles/button-glow.css";
 import SimulationResult from "./SimulationResult";
 
 class SimulateMatchup extends React.Component {
@@ -191,6 +192,7 @@ class SimulateMatchup extends React.Component {
         overtime: response["Overtime chance"],
       });
       // console.log(response);
+      console.table(response);
     };
   };
   render() {
@@ -200,14 +202,18 @@ class SimulateMatchup extends React.Component {
           {/* Home team selection */}
           <section className="selection">
             <button
-              className="button in-selection prev"
+              className="button in-selection prev glow-salmon"
               onClick={this.leftArrow.bind(this, true)}
             >
               <span>Previous</span>
             </button>
             <div className="team-panel">
-              <h1>HOME</h1>
-              <img className="team-logo" src={this.state.homePicture}></img>
+              <h2>HOME</h2>
+              <img
+                className="team-logo"
+                src={this.state.homePicture}
+                alt="Home team logo"
+              ></img>
               {/* Display basic info about currently selected home team */}
               <h3>{this.state.home}</h3>
               <h2>Season</h2>
@@ -231,7 +237,7 @@ class SimulateMatchup extends React.Component {
               </select>
             </div>
             <button
-              className="button in-selection next"
+              className="button in-selection next glow-salmon"
               onClick={this.rightArrow.bind(this, true)}
             >
               <span>Next</span>
@@ -241,14 +247,18 @@ class SimulateMatchup extends React.Component {
           {/* Away Team Selection */}
           <section className="selection">
             <button
-              className="button in-selection prev"
+              className="button in-selection prev glow-salmon"
               onClick={this.leftArrow.bind(this, false)}
             >
               <span>Previous</span>
             </button>
             <div className="team-panel">
-              <h1>AWAY</h1>
-              <img className="team-logo" src={this.state.awayPicture}></img>
+              <h2>AWAY</h2>
+              <img
+                className="team-logo"
+                src={this.state.awayPicture}
+                alt="Away team logo"
+              ></img>
               <h3>{this.state.away}</h3>
               <h2>Season</h2>
               <select
@@ -271,14 +281,17 @@ class SimulateMatchup extends React.Component {
               </select>
             </div>
             <button
-              className="button in-selection next"
+              className="button in-selection next glow-salmon"
               onClick={this.rightArrow.bind(this, false)}
             >
               <span>Next</span>
             </button>
           </section>
         </div>
-        <button className="button simulate" onClick={this.simulate}>
+        <button
+          className="button simulate glow-pinkred"
+          onClick={this.simulate}
+        >
           Simulate Matchup
         </button>
         {this.state.simulated ? (

@@ -55,7 +55,10 @@ class SimulationPanel extends React.Component {
                       up to now, to see what the algorithm think should have
                       happened and compare real-life results!
                     </p>
-                    <button className="button" onClick={this.simulateByDate}>
+                    <button
+                      className="button glow-blue"
+                      onClick={this.simulateByDate}
+                    >
                       SIMULATE BY DATE
                     </button>
                   </div>
@@ -68,7 +71,7 @@ class SimulationPanel extends React.Component {
                 <h2>SIMULATION BY MATCHUP</h2>
                 <div className="info">
                   <img src={img_matchup} className="img-in-box" alt=""></img>
-                  <div className="text-button">
+                  <div>
                     <p>
                       Choose two teams and their corresponding season to
                       matchup!
@@ -78,7 +81,10 @@ class SimulationPanel extends React.Component {
                       2017 Warriors plays the 2020 Lakers!
                     </p>
                     <p>Give it a try!</p>
-                    <button className="button" onClick={this.simulateByMatchup}>
+                    <button
+                      className="button glow-pinkred"
+                      onClick={this.simulateByMatchup}
+                    >
                       SIMULATE BY MATCHUP
                     </button>
                   </div>

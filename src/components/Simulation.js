@@ -1,6 +1,7 @@
 import React from "react";
 import SimulationPanel from "./SimulationPanel";
 import "../styles/simulation.css";
+import "../styles/button-glow.css";
 class Simulation extends React.Component {
   constructor(props) {
     super(props);
@@ -28,7 +29,7 @@ class Simulation extends React.Component {
         {/* Clicking button will show 
         the two simulation options */}
 
-        <button className="button" onClick={this.showOption}>
+        <button className="button glow-blue" onClick={this.showOption}>
           {this.state.buttonName}
         </button>
 

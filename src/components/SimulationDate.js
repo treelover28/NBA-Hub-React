@@ -35,6 +35,7 @@ import wizards from "../images/logos/wizards.png";
 import "../styles/simulateMatchup.css";
 import SimulationResult from "./SimulationResult";
 import "../styles/simulationDate.css";
+import "../styles/button-glow.css";
 class SimulationDate extends React.Component {
   constructor(props) {
     super(props);
@@ -96,7 +97,7 @@ class SimulationDate extends React.Component {
     xhr.onload = () => {
       let response = JSON.parse(xhr.responseText);
       this.setState({ result: response, simulated: true });
-      console.log(response);
+      console.table(response);
     };
   };
 
@@ -104,7 +105,7 @@ class SimulationDate extends React.Component {
     return (
       <article className="about-container decrease-top">
         <section className="about">
-          <h1>SIMULATE BY DATE</h1>
+          <h2>SIMULATE BY DATE</h2>
           <div className="date-panel">
             <img
               src={img_calendar}
@@ -124,7 +125,10 @@ class SimulationDate extends React.Component {
                     required
                   />
                 </form>
-                <button className="button" onClick={this.simulateDate}>
+                <button
+                  className="button glow-salmon"
+                  onClick={this.simulateDate}
+                >
                   Simulate games on Date
                 </button>
               </div>
@@ -139,7 +143,7 @@ class SimulationDate extends React.Component {
             this.state.result === "Season is not supported." ? (
               <section>
                 <br></br>
-                <h1 className="date-info">Results on {this.state.date}</h1>
+                <h2 className="date-info">Results on {this.state.date}</h2>
                 <SimulationResult
                   noGame={true}
                   message={this.state.result}
@@ -149,9 +153,10 @@ class SimulationDate extends React.Component {
               <section>
                 <br></br>
                 <h1 className="date-info">Results on {this.state.date}</h1>
-                {this.state.result.map((game) => {
+                {this.state.result.map((game, index) => {
                   return (
                     <SimulationResult
+                      key={index}
                       home={game["Team A"]}
                       homeScore={game["Team A's predicted score"]}
                       homeProbs={game["Team A's chance of winning"]}

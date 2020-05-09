@@ -1,0 +1,38 @@
+.glow-blue:hover {
+  animation-name: button-glow-blue;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes button-glow-blue {
+  100% {
+    background-color: #339cff;
+    transform: scale(1.1);
+  }
+}
+
+.glow-salmon:hover {
+  animation-name: button-glow-salmon;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes button-glow-salmon {
+  100% {
+    background-color: salmon;
+    transform: scale(1.1);
+  }
+}
+
+.glow-pinkred:hover {
+  animation-name: button-glow-pink-red;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes button-glow-pink-red {
+  100% {
+    background-color: #ff212c;
+    transform: scale(1.1);
+  }
+}
