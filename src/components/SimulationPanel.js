@@ -10,7 +10,7 @@ class SimulationPanel extends React.Component {
     this.state = {
       simulateDate: false,
       simulateMatchup: false,
-      showMenu: true
+      showMenu: true,
     };
   }
 
@@ -20,7 +20,7 @@ class SimulationPanel extends React.Component {
     this.setState({
       simulateDate: true,
       simulateMatchup: false,
-      showMenu: false
+      showMenu: false,
     });
     // close option menu
   };
@@ -29,7 +29,7 @@ class SimulationPanel extends React.Component {
     this.setState({
       simulateMatchup: true,
       simulateDate: false,
-      showMenu: false
+      showMenu: false,
     });
     // this.props.showOption();
     // close option menu
@@ -37,18 +37,14 @@ class SimulationPanel extends React.Component {
   };
   render() {
     return (
-      <div className="simulationPanel">
+      <article className="simulationPanel">
         {this.state.showMenu ? (
           <div className="simulation-menu">
-            <div className="about-container decrease-top">
+            <section className="about-container decrease-top">
               <div className="about">
-                <h1>SIMULATION BY DATE</h1>
+                <h2>SIMULATION BY DATE</h2>
                 <div className="info">
-                  <img
-                    src={img_calendar}
-                    className="img-in-box"
-                    alt="Lebron in front of a calendar."
-                  ></img>
+                  <img src={img_calendar} className="img-in-box" alt=""></img>
                   <div className="text-button">
                     <p>
                       Choose a date to generate predictions for games on that
@@ -65,17 +61,13 @@ class SimulationPanel extends React.Component {
                   </div>
                 </div>
               </div>
-            </div>
+            </section>
 
-            <div className="about-container decrease-top">
+            <section className="about-container decrease-top">
               <div className="about">
-                <h1>SIMULATION BY MATCHUP</h1>
+                <h2>SIMULATION BY MATCHUP</h2>
                 <div className="info">
-                  <img
-                    src={img_matchup}
-                    className="img-in-box"
-                    alt="Giannis playing against Kawhi Leonard."
-                  ></img>
+                  <img src={img_matchup} className="img-in-box" alt=""></img>
                   <div className="text-button">
                     <p>
                       Choose two teams and their corresponding season to
@@ -92,7 +84,7 @@ class SimulationPanel extends React.Component {
                   </div>
                 </div>
               </div>
-            </div>
+            </section>
           </div>
         ) : null}
 
@@ -101,7 +93,7 @@ class SimulationPanel extends React.Component {
         {this.state.simulateMatchup ? (
           <SimulationMatchup></SimulationMatchup>
         ) : null}
-      </div>
+      </article>
     );
   }
 }

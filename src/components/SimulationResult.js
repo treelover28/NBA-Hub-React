@@ -1,9 +1,9 @@
 import React from "react";
 import "../styles/simulationResult.css";
-const SimulationResult = props => {
+const SimulationResult = (props) => {
   return (
-    <div className="about">
-      <h1>Simulation Result</h1>
+    <article className="about">
+      <h2>Simulation Result</h2>
       {props.noGame ? (
         <div>
           <br></br>
@@ -13,39 +13,39 @@ const SimulationResult = props => {
       ) : (
         <div>
           <div className="result-container">
-            <div className="team">
+            <section className="team">
               <img
                 src={props.homeLogo}
                 className="nba-logo"
                 alt="home team logo"
               ></img>
               <div className="result">
-                <h2>{props.home + " " + props.homeSeason}</h2>
+                <h3>{props.home + " " + props.homeSeason}</h3>
                 <h3>Predicted Score: </h3>
                 <h4>{props.homeScore}</h4>
                 <h3>Predicted Win Probablity: </h3>
                 <h4>{props.homeProbs}</h4>
               </div>
-            </div>
-            <div className="team">
+            </section>
+            <section className="team">
               <img
                 src={props.awayLogo}
                 alt="away team logo"
                 className="nba-logo"
               ></img>
               <div className="result">
-                <h2>{props.away + " " + props.awaySeason}</h2>
+                <h3>{props.away + " " + props.awaySeason}</h3>
                 <h3>Predicted Score: </h3>
                 <h4>{props.awayScore}</h4>
                 <h3>Predicted Win Probablity: </h3>
                 <h4>{props.awayProbs}</h4>
               </div>
-            </div>
+            </section>
           </div>
           <h3>Overtime Probablity: {props.overtime} </h3>
         </div>
       )}
-    </div>
+    </article>
   );
 };
 

@@ -3,7 +3,7 @@ import "../styles/about.css";
 import players from "../images/players.jpg";
 const About = () => {
   return (
-    <div className="about-container">
+    <main className="about-container">
       <div className="picture-container">
         <img
           src={players}
@@ -11,7 +11,7 @@ const About = () => {
           alt="background showing three NBA players"
         ></img>
       </div>
-      <div className="about">
+      <article className="about">
         <p className="intro">
           Hey everyone! My name is Khai Lai and I'm a 3rd year CS student at
           University of Denver.
@@ -27,8 +27,8 @@ const About = () => {
           I don't make any money of this website, it is just a fun student
           project to help me learn full-stack web development :)
         </p>
-      </div>
-    </div>
+      </article>
+    </main>
   );
 };
 

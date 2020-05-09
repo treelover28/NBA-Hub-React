@@ -41,7 +41,7 @@ class SimulationDate extends React.Component {
     this.state = {
       date: "",
       result: null,
-      simulated: false
+      simulated: false,
     };
     // dictionary to get team logo
     this.teams = {
@@ -74,7 +74,7 @@ class SimulationDate extends React.Component {
       "San Antonio Spurs": spurs,
       "Toronto Raptors": raptors,
       "Utah Jazz": jazz,
-      "Washington Wizards": wizards
+      "Washington Wizards": wizards,
     };
   }
 
@@ -102,8 +102,8 @@ class SimulationDate extends React.Component {
 
   render() {
     return (
-      <div className="about-container decrease-top">
-        <div className="about">
+      <article className="about-container decrease-top">
+        <section className="about">
           <h1>SIMULATE BY DATE</h1>
           <div className="date-panel">
             <img
@@ -130,46 +130,48 @@ class SimulationDate extends React.Component {
               </div>
             </div>
           </div>
-        </div>
-        {// return result panel if there are games on the chosen date
-        // else, return a message to panel notifying there are no games on that date
-        this.state.simulated ? (
-          this.state.result === "No game scheduled on this date." ||
-          this.state.result === "Season is not supported." ? (
-            <div>
-              <br></br>
-              <h1 className="date-info">Results on {this.state.date}</h1>
-              <SimulationResult
-                noGame={true}
-                message={this.state.result}
-              ></SimulationResult>
-            </div>
-          ) : (
-            <div>
-              <br></br>
-              <h1 className="date-info">Results on {this.state.date}</h1>
-              {this.state.result.map(game => {
-                return (
-                  <SimulationResult
-                    home={game["Team A"]}
-                    homeScore={game["Team A's predicted score"]}
-                    homeProbs={game["Team A's chance of winning"]}
-                    homeLogo={this.teams[game["Team A"]]}
-                    homeSeason={game["Team A's season"]}
-                    awaySeason={game["Team B's season"]}
-                    away={game["Team B"]}
-                    awayScore={game["Team B's predicted score"]}
-                    awayProbs={game["Team B's chance of winning"]}
-                    awayLogo={this.teams[game["Team B"]]}
-                    overtime={game["Overtime chance"]}
-                    noGame={false}
-                  ></SimulationResult>
-                );
-              })}
-            </div>
-          )
-        ) : null}
-      </div>
+        </section>
+        {
+          // return result panel if there are games on the chosen date
+          // else, return a message to panel notifying there are no games on that date
+          this.state.simulated ? (
+            this.state.result === "No game scheduled on this date." ||
+            this.state.result === "Season is not supported." ? (
+              <section>
+                <br></br>
+                <h1 className="date-info">Results on {this.state.date}</h1>
+                <SimulationResult
+                  noGame={true}
+                  message={this.state.result}
+                ></SimulationResult>
+              </section>
+            ) : (
+              <section>
+                <br></br>
+                <h1 className="date-info">Results on {this.state.date}</h1>
+                {this.state.result.map((game) => {
+                  return (
+                    <SimulationResult
+                      home={game["Team A"]}
+                      homeScore={game["Team A's predicted score"]}
+                      homeProbs={game["Team A's chance of winning"]}
+                      homeLogo={this.teams[game["Team A"]]}
+                      homeSeason={game["Team A's season"]}
+                      awaySeason={game["Team B's season"]}
+                      away={game["Team B"]}
+                      awayScore={game["Team B's predicted score"]}
+                      awayProbs={game["Team B's chance of winning"]}
+                      awayLogo={this.teams[game["Team B"]]}
+                      overtime={game["Overtime chance"]}
+                      noGame={false}
+                    ></SimulationResult>
+                  );
+                })}
+              </section>
+            )
+          ) : null
+        }
+      </article>
     );
   }
 }

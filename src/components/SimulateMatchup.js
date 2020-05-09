@@ -58,7 +58,7 @@ class SimulateMatchup extends React.Component {
       awayPictureFinal: celtics,
       homeIndex: 0,
       awayIndex: 1,
-      simulated: false
+      simulated: false,
     };
 
     this.teams = [
@@ -91,14 +91,14 @@ class SimulateMatchup extends React.Component {
       { team: "San Antonio Spurs", pic: spurs },
       { team: "Toronto Raptors", pic: raptors },
       { team: "Utah Jazz", pic: jazz },
-      { team: "Washington Wizards", pic: wizards }
+      { team: "Washington Wizards", pic: wizards },
     ];
   }
 
   getTeam(index) {
     return this.teams[index];
   }
-  rightArrow = home => {
+  rightArrow = (home) => {
     if (home) {
       let newIndex =
         this.state.homeIndex + 1 >= 30 ? 0 : this.state.homeIndex + 1;
@@ -107,7 +107,7 @@ class SimulateMatchup extends React.Component {
       this.setState({
         homeIndex: newIndex,
         home: teamObj.team,
-        homePicture: teamObj.pic
+        homePicture: teamObj.pic,
       });
     } else {
       let newIndex =
@@ -117,12 +117,12 @@ class SimulateMatchup extends React.Component {
       this.setState({
         awayIndex: newIndex,
         away: teamObj.team,
-        awayPicture: teamObj.pic
+        awayPicture: teamObj.pic,
       });
     }
   };
 
-  leftArrow = home => {
+  leftArrow = (home) => {
     if (home) {
       let newIndex =
         this.state.homeIndex - 1 < 0 ? 29 : this.state.homeIndex - 1;
@@ -131,7 +131,7 @@ class SimulateMatchup extends React.Component {
       this.setState({
         homeIndex: newIndex,
         home: teamObj.team,
-        homePicture: teamObj.pic
+        homePicture: teamObj.pic,
       });
     } else {
       let newIndex =
@@ -141,7 +141,7 @@ class SimulateMatchup extends React.Component {
       this.setState({
         awayIndex: newIndex,
         away: teamObj.team,
-        awayPicture: teamObj.pic
+        awayPicture: teamObj.pic,
       });
     }
   };
@@ -161,7 +161,7 @@ class SimulateMatchup extends React.Component {
       home: this.state.home,
       away: this.state.away,
       homeSeason: this.state.homeSeason,
-      awaySeason: this.state.awaySeason
+      awaySeason: this.state.awaySeason,
     };
     let data = JSON.stringify(rawData);
     // create XHR object
@@ -188,16 +188,17 @@ class SimulateMatchup extends React.Component {
         awayProbs: response["Team B's chance of winning"],
         homeScore: response["Team A's predicted score"],
         awayScore: response["Team B's predicted score"],
-        overtime: response["Overtime chance"]
+        overtime: response["Overtime chance"],
       });
       // console.log(response);
     };
   };
   render() {
     return (
-      <div className="about-container center border">
+      <article className="about-container center border">
         <div className="team-select">
-          <div className="selection">
+          {/* Home team selection */}
+          <section className="selection">
             <button
               className="button in-selection prev"
               onClick={this.leftArrow.bind(this, true)}
@@ -206,15 +207,14 @@ class SimulateMatchup extends React.Component {
             </button>
             <div className="team-panel">
               <h1>HOME</h1>
-
               <img className="team-logo" src={this.state.homePicture}></img>
-
+              {/* Display basic info about currently selected home team */}
               <h3>{this.state.home}</h3>
               <h2>Season</h2>
               <select
                 name="home-season"
                 id="home-season"
-                onChange={e => {
+                onChange={(e) => {
                   this.setSeason(e, true);
                 }}
                 className="button dropdown"
@@ -236,9 +236,10 @@ class SimulateMatchup extends React.Component {
             >
               <span>Next</span>
             </button>
-          </div>
+          </section>
           <br></br>
-          <div className="selection">
+          {/* Away Team Selection */}
+          <section className="selection">
             <button
               className="button in-selection prev"
               onClick={this.leftArrow.bind(this, false)}
@@ -253,7 +254,7 @@ class SimulateMatchup extends React.Component {
               <select
                 name="away-season"
                 id="away-season"
-                onChange={e => {
+                onChange={(e) => {
                   this.setSeason(e, false);
                 }}
                 className="button dropdown"
@@ -275,7 +276,7 @@ class SimulateMatchup extends React.Component {
             >
               <span>Next</span>
             </button>
-          </div>
+          </section>
         </div>
         <button className="button simulate" onClick={this.simulate}>
           Simulate Matchup
@@ -295,7 +296,7 @@ class SimulateMatchup extends React.Component {
             overtime={this.state.overtime}
           ></SimulationResult>
         ) : null}
-      </div>
+      </article>
     );
   }
 }

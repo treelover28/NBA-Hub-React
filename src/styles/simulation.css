@@ -15,7 +15,7 @@
   padding-left: 4%;
 }
 
-.about h1,
+.about h2,
 .heading {
   width: 100%;
   background-color: #555;
@@ -36,7 +36,7 @@
     display: inline-block;
   }
 
-  .about h1,
+  .about h2,
   .heading {
     font-size: 20px;
   }

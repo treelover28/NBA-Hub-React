@@ -5,6 +5,7 @@
   display: inline-block;
   padding: 20px 5px;
   text-align: center;
+  position: relative;
   background-color: #24292e;
   top: 0px;
   /* position: fixed; */

@@ -6,7 +6,7 @@ class Simulation extends React.Component {
     super(props);
     this.state = {
       showOption: false,
-      buttonName: "Predict"
+      buttonName: "Predict",
     };
   }
 
@@ -24,7 +24,7 @@ class Simulation extends React.Component {
 
   render() {
     return (
-      <div className="simulationPanel">
+      <article className="simulationPanel">
         {/* Clicking button will show 
         the two simulation options */}
 
@@ -41,7 +41,7 @@ class Simulation extends React.Component {
             getOptionState={this.getOptionState}
           ></SimulationPanel>
         ) : null}
-      </div>
+      </article>
     );
   }
 }
