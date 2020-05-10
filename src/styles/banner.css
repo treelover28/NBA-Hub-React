@@ -32,16 +32,3 @@
   vertical-align: middle;
   height: inherit;
 }
-
-.site-logo:hover {
-  animation-name: ball-spin;
-  animation-duration: 500ms;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-}
-
-@keyframes ball-spin {
-  100% {
-    transform: rotate(360deg);
-  }
-}

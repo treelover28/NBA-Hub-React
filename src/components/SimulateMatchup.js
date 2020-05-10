@@ -35,6 +35,7 @@ import wizards from "../images/logos/wizards.png";
 import "../styles/simulateMatchup.css";
 import "../styles/button-glow.css";
 import SimulationResult from "./SimulationResult";
+import LoadingScreen from "./LoadingScreen";
 
 class SimulateMatchup extends React.Component {
   constructor(props) {
@@ -60,6 +61,7 @@ class SimulateMatchup extends React.Component {
       homeIndex: 0,
       awayIndex: 1,
       simulated: false,
+      loading: false,
     };
 
     this.teams = [
@@ -176,8 +178,11 @@ class SimulateMatchup extends React.Component {
     // send data to API
     xhr.send(data);
     // get response back from API
+    // display loading screen
+    this.setState({ loading: true, simulated: false });
     xhr.onload = () => {
       let response = JSON.parse(xhr.responseText);
+      console.table(response);
       this.setState({
         homeFinal: response["Team A"],
         awayFinal: response["Team B"],
@@ -190,9 +195,9 @@ class SimulateMatchup extends React.Component {
         homeScore: response["Team A's predicted score"],
         awayScore: response["Team B's predicted score"],
         overtime: response["Overtime chance"],
+        loading: false,
+        simulated: true,
       });
-      // console.log(response);
-      console.table(response);
     };
   };
   render() {
@@ -294,6 +299,7 @@ class SimulateMatchup extends React.Component {
         >
           Simulate Matchup
         </button>
+        {this.state.loading && <LoadingScreen></LoadingScreen>}
         {this.state.simulated ? (
           <SimulationResult
             home={this.state.homeFinal}

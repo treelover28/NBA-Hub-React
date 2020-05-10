@@ -32,8 +32,9 @@ import raptors from "../images/logos/raptors.png";
 import jazz from "../images/logos/jazz.png";
 import wizards from "../images/logos/wizards.png";
 
-import "../styles/simulateMatchup.css";
 import SimulationResult from "./SimulationResult";
+import LoadingScreen from "../components/LoadingScreen";
+import "../styles/simulateMatchup.css";
 import "../styles/simulationDate.css";
 import "../styles/button-glow.css";
 class SimulationDate extends React.Component {
@@ -43,6 +44,7 @@ class SimulationDate extends React.Component {
       date: "",
       result: null,
       simulated: false,
+      loading: false,
     };
     // dictionary to get team logo
     this.teams = {
@@ -94,10 +96,12 @@ class SimulationDate extends React.Component {
     xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
     // send data
     xhr.send(data);
+    // set loading screen and then retrieve data from API
+    this.setState({ loading: true, simulated: false });
     xhr.onload = () => {
       let response = JSON.parse(xhr.responseText);
-      this.setState({ result: response, simulated: true });
       console.table(response);
+      this.setState({ result: response, simulated: true, loading: false });
     };
   };
 
@@ -135,6 +139,7 @@ class SimulationDate extends React.Component {
             </div>
           </div>
         </section>
+        {this.state.loading && <LoadingScreen />}
         {
           // return result panel if there are games on the chosen date
           // else, return a message to panel notifying there are no games on that date
@@ -152,7 +157,7 @@ class SimulationDate extends React.Component {
             ) : (
               <section>
                 <br></br>
-                <h1 className="date-info">Results on {this.state.date}</h1>
+                <h2 className="date-info">Results on {this.state.date}</h2>
                 {this.state.result.map((game, index) => {
                   return (
                     <SimulationResult

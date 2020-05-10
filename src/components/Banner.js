@@ -2,6 +2,7 @@ import React from "react";
 // import logo from "../images/bball-logo.svg";
 import logo from "../images/logo.gif";
 import "../styles/banner.css";
+import "../styles/ballspin.css";
 const Banner = () => {
   return (
     <header className="banner">
