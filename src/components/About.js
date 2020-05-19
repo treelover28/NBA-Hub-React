@@ -3,16 +3,16 @@ import "../styles/about.css";
 import players from "../images/players.jpg";
 const About = () => {
   return (
-    <main className="about-container">
-      <div className="picture-container">
+    <main className="container-margin-padding-shadow">
+      <div className="picture-container-fit">
         <img
           src={players}
           className="picture"
           alt="background showing three NBA players"
         ></img>
       </div>
-      <article className="about">
-        <p className="intro">
+      <article className="textbox-padding">
+        <p>
           Hey everyone! My name is Khai Lai and I'm a 3rd year CS student at
           University of Denver.
         </p>

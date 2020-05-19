@@ -1,4 +1,4 @@
-.banner {
+.banner-container {
   z-index: 10000;
   width: 100%;
   max-height: 100px;
@@ -30,5 +30,4 @@
   text-align: center;
   display: inline-block;
   vertical-align: middle;
-  height: inherit;
 }

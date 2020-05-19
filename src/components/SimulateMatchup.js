@@ -202,7 +202,7 @@ class SimulateMatchup extends React.Component {
   };
   render() {
     return (
-      <article className="about-container center border">
+      <article className="container-margin-padding-shadow center border">
         <div className="team-select">
           {/* Home team selection */}
           <section className="selection">
@@ -213,7 +213,7 @@ class SimulateMatchup extends React.Component {
               <span>Previous</span>
             </button>
             <div className="team-panel">
-              <h2>HOME</h2>
+              <h2 className="heading">HOME</h2>
               <img
                 className="team-logo"
                 src={this.state.homePicture}

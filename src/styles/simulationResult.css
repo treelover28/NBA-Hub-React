@@ -1,11 +1,13 @@
 .team {
   display: flex;
-  text-align: center;
+  flex-direction: row;
+  justify-content: space-between;
   width: 50%;
 }
 
 .result-container {
-  display: flex;
+  display: inline-flex;
+  justify-content: center;
   align-items: center;
 }
 
@@ -21,18 +23,18 @@
 
 @media only screen and (max-width: 900px) {
   .result-container {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
   }
   .team {
-    display: block;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 100%;
   }
   .result {
     width: 100%;
-  }
-
-  .nba-logo {
-    width: 80%;
   }
 }

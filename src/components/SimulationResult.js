@@ -2,8 +2,8 @@ import React from "react";
 import "../styles/simulationResult.css";
 const SimulationResult = (props) => {
   return (
-    <article className="about">
-      <h2>Simulation Result</h2>
+    <article className="textbox-padding">
+      <h2 className="heading">Simulation Result</h2>
       {props.noGame ? (
         <div>
           <br></br>

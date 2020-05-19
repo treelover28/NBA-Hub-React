@@ -2,20 +2,27 @@
   margin: 10px 15% 0 15%;
 }
 
-.info {
+/* .info */
+.flex-container {
   display: flex;
+  justify-content: space-around;
+  flex-direction: row;
 }
 
-.info img {
+.flex-img-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.flex-img-col img {
   object-fit: contain;
-  max-width: 40%;
+  max-width: 250px;
 }
 
-.info p {
+.flex-container p {
   padding-left: 4%;
 }
-
-.about h2,
 .heading {
   width: 100%;
   background-color: #ff7038;
@@ -23,20 +30,23 @@
 }
 
 @media only screen and (max-width: 650px) {
-  .info {
+  .flex-container {
     display: inline-block;
     text-align: center;
   }
 
-  .info img {
+  .flex-img-col {
+    display: inline-block;
+    text-align: center;
+  }
+  .flex-img-col img {
     max-width: 80%;
   }
 
-  .about {
+  .textbox-padding {
     display: inline-block;
   }
 
-  .about h2,
   .heading {
     font-size: 20px;
   }

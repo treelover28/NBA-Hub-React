@@ -40,11 +40,13 @@ class SimulationPanel extends React.Component {
       <article className="simulationPanel">
         {this.state.showMenu ? (
           <div className="simulation-menu">
-            <section className="about-container decrease-top">
-              <div className="about">
-                <h2>SIMULATION BY DATE</h2>
-                <div className="info">
-                  <img src={img_calendar} className="img-in-box" alt=""></img>
+            <section className="container-margin-padding-shadow decrease-top">
+              <div className="textbox-padding">
+                <h2 className="heading">SIMULATION BY DATE</h2>
+                <div className="flex-container">
+                  <div className="flex-img-col">
+                    <img src={img_calendar} alt=""></img>
+                  </div>
                   <div className="text-button">
                     <p>
                       Choose a date to generate predictions for games on that
@@ -66,11 +68,13 @@ class SimulationPanel extends React.Component {
               </div>
             </section>
 
-            <section className="about-container decrease-top">
-              <div className="about">
-                <h2>SIMULATION BY MATCHUP</h2>
-                <div className="info">
-                  <img src={img_matchup} className="img-in-box" alt=""></img>
+            <section className="container-margin-padding-shadow decrease-top">
+              <div className="textbox-padding">
+                <h2 className="heading">SIMULATION BY MATCHUP</h2>
+                <div className="flex-container">
+                  <div className="flex-img-col">
+                    <img src={img_matchup} alt=""></img>
+                  </div>
                   <div>
                     <p>
                       Choose two teams and their corresponding season to

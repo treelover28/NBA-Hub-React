@@ -1,20 +1,21 @@
-.about {
+/* .about */
+.textbox-padding {
   padding: 5px 20px 5px 20px;
   background-color: #ffffff;
-  /* overflow: scroll; */
 }
 
 .picture {
   width: 100%;
 }
 
-.picture-container {
+.picture-container-fit {
   overflow: hidden;
   max-height: 400px;
   object-fit: cover;
 }
 
-.about-container {
+/* .about-container { */
+.container-margin-padding-shadow {
   /* margin 15% left and right*/
   margin: 20px 15% 0 15%;
   vertical-align: bottom;

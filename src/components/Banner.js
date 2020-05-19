@@ -5,7 +5,7 @@ import "../styles/banner.css";
 import "../styles/ballspin.css";
 const Banner = () => {
   return (
-    <header className="banner">
+    <header className="banner-container">
       <img
         src={logo}
         className="site-logo"

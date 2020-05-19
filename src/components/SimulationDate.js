@@ -34,9 +34,9 @@ import wizards from "../images/logos/wizards.png";
 
 import SimulationResult from "./SimulationResult";
 import LoadingScreen from "../components/LoadingScreen";
-import "../styles/simulateMatchup.css";
 import "../styles/simulationDate.css";
 import "../styles/button-glow.css";
+import "../styles/simulation.css";
 class SimulationDate extends React.Component {
   constructor(props) {
     super(props);
@@ -84,38 +84,46 @@ class SimulationDate extends React.Component {
   simulateDate = () => {
     // get form data by selecting form document
     let date = document.getElementsByClassName("date-input")[0].value;
-    this.setState({ date: date });
-    let data = JSON.stringify({ date: date });
-    console.log(data);
-    // send POST request to API endpoint/handle_date
-    let xhr = new XMLHttpRequest();
-    // connect to API hosted on Heroku
-    const url = "https://nbahub-api.herokuapp.com/handle-date";
-    // const url = "http://0.0.0.0:5000/handle-date";
-    xhr.open("POST", url, true);
-    xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
-    // send data
-    xhr.send(data);
-    // set loading screen and then retrieve data from API
-    this.setState({ loading: true, simulated: false });
-    xhr.onload = () => {
-      let response = JSON.parse(xhr.responseText);
-      console.table(response);
-      this.setState({ result: response, simulated: true, loading: false });
-    };
+    // handle empty date field
+    if (date === "") {
+      this.setState({
+        result: "Please select a date to simulate.",
+        simulated: true,
+        loading: false,
+      });
+    } else {
+      this.setState({ date: date });
+      let data = JSON.stringify({ date: date });
+      console.log(data);
+      // send POST request to API endpoint/handle_date
+      let xhr = new XMLHttpRequest();
+      // connect to API hosted on Heroku
+      const url = "https://nbahub-api.herokuapp.com/handle-date";
+      // const url = "http://0.0.0.0:5000/handle-date";
+      xhr.open("POST", url, true);
+      xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
+      // send data
+      xhr.send(data);
+      // set loading screen and then retrieve data from API
+      this.setState({ loading: true, simulated: false });
+      xhr.onload = () => {
+        let response = JSON.parse(xhr.responseText);
+        console.table(response);
+        this.setState({ result: response, simulated: true, loading: false });
+      };
+    }
   };
 
   render() {
     return (
-      <article className="about-container decrease-top">
-        <section className="about">
-          <h2>SIMULATE BY DATE</h2>
-          <div className="date-panel">
-            <img
-              src={img_calendar}
-              className="img-in-box"
-              alt="Lebron in front of a calendar."
-            ></img>
+      <article className="container-margin-padding-shadow decrease-top">
+        <section className="textbox-padding">
+          <h2 className="heading">SIMULATE BY DATE</h2>
+          <div className="flex-container">
+            <div className="flex-img-col">
+              <img src={img_calendar} alt=""></img>
+            </div>
+
             <div className="input-field">
               <div className="input-field-child">
                 <h4>Enter a future game date you wish to simulate</h4>
@@ -145,7 +153,8 @@ class SimulationDate extends React.Component {
           // else, return a message to panel notifying there are no games on that date
           this.state.simulated ? (
             this.state.result === "No game scheduled on this date." ||
-            this.state.result === "Season is not supported." ? (
+            this.state.result === "Season is not supported." ||
+            this.state.result === "Please select a date to simulate." ? (
               <section>
                 <br></br>
                 <h2 className="date-info">Results on {this.state.date}</h2>
