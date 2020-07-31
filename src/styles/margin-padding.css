@@ -3,16 +3,28 @@
   padding: 20px;
 }
 
-.flex {
+.flex-column {
   display: inline-flex;
   text-align: center;
+  flex-direction: column;
 }
 
+.flex-row {
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: center;
+  /* align-content: center; */
+}
 .left {
-  padding: 5px;
+  width: 40%;
+  text-align: right;
 }
 
 .right {
-  width: 80%;
-  padding: 5px;
+  width: 60%;
+  text-align: left;
+}
+
+.center {
+  align-items: center;
 }
